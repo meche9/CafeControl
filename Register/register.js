@@ -74,28 +74,12 @@ const addDatos = (nameUser,email,password,phone,data)=>{
             email:email,
             password:password,
             phone:phone});  
-            
+          
      } else{
         data=[nameUser,email,password,phone];
      }
      localStorage.setItem('loginApp', JSON.stringify(data));
 
-    /* data.forEach(() =>{
-        const [nombre,correo,clave,celular] = data;
-
-        localStorage.setItem('loginApp',
-            JSON.stringify({
-                nameUser:nombre,
-                email:correo,
-                contraseña:clave,
-                phone:celular,
-            }));
-
-
-
-     })*/
-    
-    
 }
     
 

@@ -3,6 +3,9 @@ const password= document.querySelector('.password');
 const btnLogin = document.querySelector('.btn-login');
 const btnCheckIn = document.querySelector('.btn-checkIn');
 
+let data = localStorage.getItem('loginApp');
+let users = JSON.parse(data);
+
 const validation= (user) => {    
     var set = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
 
@@ -19,17 +22,7 @@ const foco = (element) =>{
     document.querySelector(element).focus();
 }
 
-/****BUSCAR EN LOCALSTORE**/
-const seachUser = (password, email) => {
-    let data = localStorage.getItem('loginApp');
 
-    data=JSON.parse(data);
-    if ((password == data.contraseña) && (email==data.email)) {
-        return  true;
-    }else{
-        return false;
-    }
-}
 
 //***VALIDACION DEL CORREO */
 user.addEventListener('keyup', event => {
@@ -50,27 +43,44 @@ password.addEventListener('keyup', event => {
     }
     });   
 
+ 
+/****BUSCAR EN LOCALSTORE**/
+const seachUser = (password, email) => {
+
+    users.forEach((element) => {
+        if ((password ==element.contraseña) && (email==element.email)) {
+            return  true;
+        }else{
+            return false;
+    }    
+    });
+}
+
+
+
+
     /***BOTON INICIAR SESION */
 btnLogin.addEventListener('click', event => {
-
-     /*   localStorage.setItem('loginApp',
-            JSON.stringify({
-                id:1,
-                email:'mmrr28@gmail.com',
-                contraseña:"1234"
-            })*/
-      
-      seachUser (password.value,user.value);
-      if (seachUser()) {
-        /*busca el enlace a la pagina dashboard*/  
-        window.location.href="../dashBoard/index.html";
-      } else{
-        alert("¡Parametros Incorrectos!");
+    
+    if (password.value && user.value) {
+            seachUser (password.value,user.value);
+            
+            if (seachUser()) {  
+                 window.location.href="../dashBoard/index.html";
+            } else{
+                    alert("¡Parametros Incorrectos!");
+                    user.value="";
+                    password.value="";
+                    foco(".user");
+            }
+            
+        }else {
+        alert("¡Registre los Datos!");
         user.value="";
         password.value="";
         foco(".user");
-      }
-       
+    }        
+     
 })
 
 
