@@ -1,0 +1,133 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 20px;
+}
+
+:root{
+    --white:#e5e1da;
+    --beige: #b29589;
+    --orange:#c9461f;
+    --yelow: #e09a52;
+    --green: #6c8f40;
+    --yelowGold: yellow;
+}
+
+body{
+   height: 100vh;
+   display: flex;
+   justify-content: center;
+  
+   
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90%;
+    width: 70%;
+    margin-top: 2rem;
+    
+}
+
+.sidebar-left{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    height: 100%;
+    border-radius: 0.8rem 0 0 .8rem;
+    background:  linear-gradient(to bottom,  var(--beige),var(--white));
+}
+
+.logo{
+    display: grid;
+    place-content: center;
+    margin-top: 2rem;
+    
+}
+
+.logo img{
+    height: 10rem;
+    width: 10rem;
+    margin: 0 auto;
+}
+
+
+.span1, .span2, .span3, .span4, .span5{
+    font-family: 'Caveat';
+    font-size: 25px;
+    Color:black;
+    margin: 0 auto;
+}
+
+.span1{
+    font-size: 30px;
+    font-weight: bold;
+    Color:var(--orange);
+    margin-bottom: 1rem;
+    
+}
+
+.span5{
+    margin-bottom: 4rem;
+}
+
+.name, .email, .phone, .password  {
+    font-size: 18px;
+    width: 20rem;
+    padding: 0.2rem;
+    margin: 0 auto;
+    border: none;
+    border-bottom: 2px solid var(--beige);
+    background:transparent;
+    margin-bottom: 0.8rem;
+}
+
+.btn-login, .btn-register{
+    font-size: 15px;
+    margin-top: 3rem;
+    border-radius: 1rem;
+    height: 1.5rem;
+    width: 8rem;
+    margin: 0 auto;
+    background-color: var(--white);
+}
+
+.btn-login:hover, .btn-register:hover{
+    transform: scale(1.1);
+    cursor: pointer;
+ }
+
+ .btn-register{
+    margin-top: 2rem;
+ }
+
+ 
+
+
+/*/////////////////////izquierda/////////////////////////////*/
+
+.sidebar-right{
+    display:grid;
+    place-content: center;
+    width: 50%;
+    height: 100%;
+    background-color:var(--yelow); 
+    border-radius: 0 .8rem .8rem 0;
+   
+}
+
+.span6{
+    margin-top: 27rem;
+    font-family: 'caveat';
+    font-size: 30px;
+    color: var(--white);   
+}
+
+
+.btn-login{
+    margin-top: 2rem;
+    background: var(--beige);
+}
